@@ -1,7 +1,8 @@
-var webpack = require('webpack'),
-    path    = require('path');
+var webpack           = require('webpack'),
+    htmlWebpackPlugin = require('html-webpack-plugin');
+    path              = require('path');
 
-var BUILD_DIR = path.resolve(__dirname, 'src/client/public'),
+var BUILD_DIR = path.resolve(__dirname, 'src/client/dist'),
     APP_DIR   = path.resolve(__dirname, 'src/client/app');
 
 module.exports = {
@@ -26,5 +27,15 @@ module.exports = {
           loader  : 'babel-loader'
         }
       ]
-    }
+    },
+
+    devServer: {
+      contentBase: BUILD_DIR,
+      compress: true,
+      port: 8080
+    },
+
+    plugins: [new htmlWebpackPlugin({
+      template: 'src/client/index.html'
+    })]
 };
