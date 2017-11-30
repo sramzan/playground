@@ -7,10 +7,10 @@ var BUILD_DIR = path.resolve(__dirname, 'src/client/dist'),
 
 module.exports = {
   entry: APP_DIR + '/index.jsx',
-    output: {
+  output: {
       path: BUILD_DIR,
       filename: 'bundle.js'
-    },
+  },
     
     /**
      * The loaders property takes an array of loaders, here we are just using babel-loader. 
