@@ -1,22 +1,25 @@
 import React from 'react';
 
 class LikeButton extends React.Component {
-  buttonName = this.props.buttonName;
-  incrementByValue = this.props.incrementBy;
-  parentClickAction = this.props.action;
-  
-  buttonOnClickAction = () => {
-    this.parentClickAction(this.incrementByValue)
-  };
+  constructor(props){
+    super(props);
+    this.buttonName = this.props.buttonName;
+    this.incrementByValue = this.props.incrementBy;
+    this.parentClickAction = this.props.action;
+    
+    this.buttonOnClickAction = () => {
+      this.parentClickAction(this.incrementByValue)
+    };
+  }
 
   render(){
-    return (
+    return (  
       <button onClick={this.buttonOnClickAction}>
         {this.buttonName}
       </button>
     );
-  };
-};
+  }
+}
 
 class ClearButton extends React.Component{
 
@@ -31,15 +34,18 @@ const Result = (props) => {
 };
 
 class Counter extends React.Component {
-  state = {
-    timesLiked : 0
-  };
+  constructor(props){
+    super(props);
+    this.state = {
+      timesLiked : 0
+    };
 
-  increment = (incrementVal) => {
-    this.setState((prevState) => ({
-      timesLiked : prevState.timesLiked + incrementVal
-    }));
-  };
+    this.increment = (incrementVal) => {
+      this.setState((prevState) => ({
+        timesLiked : prevState.timesLiked + incrementVal
+      }));
+    };
+  }
 
   render() {
     return (
@@ -49,13 +55,13 @@ class Counter extends React.Component {
         <LikeButton incrementBy={10} buttonName="+10" action={this.increment}/>
         <LikeButton incrementBy={20} buttonName="+20" action={this.increment}/>
         <LikeButton incrementBy={30} buttonName="+30" action={this.increment}/>
-        <LikeButton incrementBy={1222187} buttonName="+1222187" action={this.increment}/>
+        <LikeButton incrementBy={40} buttonName="+40" action={this.increment}/>
         <LikeButton incrementBy={-1} buttonName="-1" action={this.increment}/>
 
         <Result timesLiked={this.state.timesLiked}/>
       </div>
     );
-  };
-};
+  }
+}
 
 export default Counter;

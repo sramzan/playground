@@ -1,8 +1,8 @@
-var webpack           = require('webpack'),
-    htmlWebpackPlugin = require('html-webpack-plugin');
+let webpack           = require('webpack'),
+    htmlWebpackPlugin = require('html-webpack-plugin'),
     path              = require('path');
 
-var BUILD_DIR = path.resolve(__dirname, 'src/client/dist'),
+let BUILD_DIR = path.resolve(__dirname, 'src/client/dist'),
     APP_DIR   = path.resolve(__dirname, 'src/client/app');
 
 module.exports = {
