@@ -5,7 +5,7 @@ var webpack           = require('webpack'),
 var BUILD_DIR = path.resolve(__dirname, 'src/client/dist'),
     APP_DIR   = path.resolve(__dirname, 'src/client/app');
 
-export default {
+module.exports = {
   entry: APP_DIR + '/index.jsx',
   output: {
       path: BUILD_DIR,
