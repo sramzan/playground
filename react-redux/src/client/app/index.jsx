@@ -9,7 +9,7 @@ class App extends React.Component {
         <p> Sean's Dummy React App!</p>
         <AwesomeComponent/>
       </div>
-    )
+    );
   }
 }
 

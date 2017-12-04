@@ -8,8 +8,10 @@
     "db": "npm run dev-build",
     "prod-build": "webpack -p",
     "pb": "npm run prod-build",
+    "prestart": "babel-node setup/startupMessage",
     "start": "webpack-dev-server --open",
     "server": "webpack-dev-server --open",
+    "lint": "esw webpack.config.* src setup",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sean Ramzan",
