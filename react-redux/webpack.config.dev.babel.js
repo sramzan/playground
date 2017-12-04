@@ -1,14 +1,16 @@
 import webpack from 'webpack';
+import htmlWebpackPlugin from 'html-webpack-plugin';
+import cleanWebpackPlugin from 'clean-webpack-plugin';
 import path from 'path';
 
 let APP_DIR   = path.resolve(__dirname, 'src/client/app'),
-    BUILD_DIR = path.resolve(__dirname, 'src/client/dist');
+    BUILD_DIR = path.resolve(__dirname, 'dist');
 
 export default {
   /**
    * Displays debug info
    */
-  debug: true,
+//   debug: true,
 
   /**
    * Other options exist... check documenation
@@ -18,7 +20,7 @@ export default {
   /**
    * webpack will display a list of all bundled files when this is set to false
    */
-  noInfo: false, 
+//   noInfo: false, 
 
   /**
    * Array of entry points
@@ -27,8 +29,8 @@ export default {
    */
   entry: [ 
     'eventsource-polyfill', // necessary for hot reloading with IE
-    'webpack-hot-middleware/client?reload=true', //note that it reloads the page if hot module reloading fails. reload=true is what tells webpack to reload if there is an issue
-    APP_DIR + '/index',
+    // 'webpack-hot-middleware/client?reload=true', //note that it reloads the page if hot module reloading fails. reload=true is what tells webpack to reload if there is an issue
+    APP_DIR + '/index.jsx',
   ],
 
   /**
@@ -54,9 +56,13 @@ export default {
     compress: true,
     port: 8080
   },
+
   plugins: [
-    new webpack.HotModuleReplacementPlugin(), // Hot reloading
-    new webpack.NoErrorsPlugin() // Keeps errors from breaking our hot reloading epxerience (handles them gracefully)
+    new cleanWebpackPlugin(['dist']),
+    new webpack.NoEmitOnErrorsPlugin(), // Keeps errors from breaking our hot reloading epxerience (handles them gracefully)
+    new htmlWebpackPlugin({
+        template: 'src/client/index.html'
+    })
   ],
 
   /**
@@ -67,13 +73,13 @@ export default {
     loaders: [
         {
             test: /\.js$/, 
-            include: path.join(__dirname, 'src'), 
+            include: APP_DIR,
             loaders: ['babel']
         },
         {
-            test    : /\.jsx?/,
-            include : APP_DIR,
-            loader  : 'babel-loader'
+            test: /\.jsx?/,
+            include: APP_DIR,
+            loader: 'babel-loader'
         },
         {
             test: /(\.css)$/, 
