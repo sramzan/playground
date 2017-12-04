@@ -6,7 +6,7 @@
   "scripts": {
     "dev-build": "webpack -d --config webpack.config.dev.babel.js",
     "db": "npm run dev-build",
-    "db:watch": "npm run db -- --watch",
+    "db:watch": "npm run dev-build -- --watch",
     "prod-build": "webpack -p",
     "pb": "npm run prod-build",
     "prestart": "babel-node setup/startupMessage",

@@ -3,7 +3,7 @@ import htmlWebpackPlugin from 'html-webpack-plugin';
 import cleanWebpackPlugin from 'clean-webpack-plugin';
 import path from 'path';
 
-let APP_DIR   = path.resolve(__dirname, 'src/client/app'),
+let APP_DIR   = path.resolve(__dirname, './src'),
     BUILD_DIR = path.resolve(__dirname, './dist');
 
 export default {
@@ -61,7 +61,7 @@ export default {
     new cleanWebpackPlugin(['dist']),
     new webpack.NoEmitOnErrorsPlugin(), // Keeps errors from breaking our hot reloading epxerience (handles them gracefully)
     new htmlWebpackPlugin({
-        template: 'src/client/index.html'
+        template: APP_DIR + '/index.html'
     })
   ],
 
