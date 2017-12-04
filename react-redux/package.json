@@ -4,8 +4,9 @@
   "description": "Sample app highlighting react",
   "main": "index.js",
   "scripts": {
-    "dev-build": "webpack -d --watch",
+    "dev-build": "webpack -d --config webpack.config.dev.babel.js",
     "db": "npm run dev-build",
+    "db:watch": "npm run db -- --watch",
     "prod-build": "webpack -p",
     "pb": "npm run prod-build",
     "prestart": "babel-node setup/startupMessage",
@@ -14,9 +15,10 @@
     "server:hot": "npm start -- --inline --hot",
     "lint": "esw webpack.config.* src setup",
     "lint:watch": "npm run lint -- --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo 'Welcome to the react-redux boiler plate app!'"
   },
   "author": "Sean Ramzan",
+  "repository": "https://github.com/sramzan/playground",
   "license": "MIT",
   "dependencies": {
     "babel-polyfill": "^6.26.0",

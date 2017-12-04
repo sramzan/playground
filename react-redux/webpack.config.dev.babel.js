@@ -4,7 +4,7 @@ import cleanWebpackPlugin from 'clean-webpack-plugin';
 import path from 'path';
 
 let APP_DIR   = path.resolve(__dirname, 'src/client/app'),
-    BUILD_DIR = path.resolve(__dirname, 'dist');
+    BUILD_DIR = path.resolve(__dirname, './dist');
 
 export default {
   /**
@@ -15,7 +15,7 @@ export default {
   /**
    * Other options exist... check documenation
    */
-  devtool: 'inline-source-map', 
+//   devtool: 'inline-source-map', 
 
   /**
    * webpack will display a list of all bundled files when this is set to false
@@ -44,7 +44,7 @@ export default {
    */
   output: {
     path: BUILD_DIR, // Note: Physical files are only output by the production build task `npm run build`.
-    publicPath: '/', // Tells webpack that the app will ultimately run from the dist dir
+    // publicPath: '/', // Tells webpack that the app will ultimately run from the dist dir
     filename: 'bundle.js'
   },
 
