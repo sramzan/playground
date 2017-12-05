@@ -4,8 +4,8 @@ class HomePage extends React.Component{
     render() {
         return (
             <div className="jumbotron">
-                <h1>Sean</h1>
-                <p>Super Awesome App</p>
+                <h1>Welcome</h1>
+                <p>Sean's Super Awesome App</p>
             </div>
         );
     }

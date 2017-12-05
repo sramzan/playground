@@ -1,6 +1,7 @@
 import * as types from '../actions/actionsTypes';
+import initialState from './initialState';
 
-export default function courseReducer(state = [], action){
+export default function courseReducer(state = initialState.courses, action){
 // this reducer handles a list of courses, so we intialize the state
 // to an empty array
     switch(action.type){
@@ -11,6 +12,8 @@ export default function courseReducer(state = [], action){
             // this would seem like what you need to do, but state is immutable! Don't modify it!
             // state.push(action.course);
             // return state;
+        case types.LOAD_COURSES_SUCCESS:
+            return action.courses;
         default:
             return state;
     }

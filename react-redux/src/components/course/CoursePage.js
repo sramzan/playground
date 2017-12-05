@@ -1,5 +1,6 @@
 import React                from 'react';
 import PropTypes            from 'prop-types';
+import CourseList           from './CourseList';
 import {connect}            from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as courseActions   from '../../actions/courseActions';
@@ -36,23 +37,28 @@ class CoursePage extends React.Component{
         return <div key={index}>{course.title}</div>;
     }
 
+    // <h1>Courses</h1>
+    // {this.props.courses.map(this.courseRow)}
+    // <h2>Add Courses</h2>
+    // <input 
+    //     type="text"
+    //     onChange={this.onTitleChange}
+    //     value={this.state.course.title}
+    // />
+    // <input
+    //     type="submit"
+    //     value="Save"
+    //     onClick={this.onClickSave} 
+    // />
+
     render() {
+        const {courses} = this.props;
+
         // TOOD: move markup to presentation component
         return (
             <div>
                 <h1>Courses</h1>
-                {this.props.courses.map(this.courseRow)}
-                <h2>Add Courses</h2>
-                <input 
-                    type="text"
-                    onChange={this.onTitleChange}
-                    value={this.state.course.title}
-                />
-                <input
-                    type="submit"
-                    value="Save"
-                    onClick={this.onClickSave} 
-                />
+                <CourseList courses={courses}/>
             </div>
         );
     }

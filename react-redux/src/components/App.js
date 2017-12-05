@@ -7,7 +7,7 @@ import Main from './home/Main';
  * Main is where the other components are rendered
  */
 const App = () => (
-  <div>
+  <div className="container-fluid">
     <Header />
     <Main />
   </div>

@@ -4,13 +4,17 @@ import {Link} from 'react-router-dom';
 // The Header creates links that can be used to navigate
 // between routes.
 const Header = () => (
+  //className="nav-link"
   <header>
-    <nav>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/courses">Courses</Link></li>
-      </ul>
+    <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
+      <div className="collapse navbar-collapse">
+          <ul className="">
+            <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/about">About</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/courses">Courses</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/manage-course">Manage Course</Link></li>
+          </ul>
+      </div>
     </nav>
   </header>
 );
