@@ -2,12 +2,11 @@ import React     from 'react';
 import PropTypes from 'prop-types';
 import CourseListRow from './CourseListRow';
 
-const CourseList = ({courses, deleteCourse}) => {
+const CourseList = ({courses}) => {
     return (
         <table className="table">
             <thead>
             <tr>
-                <th></th>
                 <th>Title</th>
                 <th>Author</th>
                 <th>Category</th>

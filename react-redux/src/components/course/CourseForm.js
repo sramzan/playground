@@ -6,7 +6,7 @@ import SelectInput from '../common/SelectInput';
 const CourseForm =({course, allAuthors, onSave, onChange, loading, errors}) => {
     return (
         <form>
-            <h1>Manage Course</h1>
+            <h1>Manage Guides</h1>
             <TextInput 
                 name="title"
                 label="Title"
@@ -40,10 +40,11 @@ const CourseForm =({course, allAuthors, onSave, onChange, loading, errors}) => {
             />
 
             <input
-                type="submit"
+                type="button"
                 disabled={loading}
                 value={loading ? 'Saving...' : 'Save'}
-                className={onSave}
+                className="btn btn-primary"
+                onClick={onSave}
             />
         </form>
     );

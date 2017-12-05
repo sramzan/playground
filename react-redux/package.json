@@ -15,7 +15,8 @@
     "server:hot": "npm start -- --inline --hot",
     "lint": "esw webpack.config.* src setup",
     "lint:watch": "npm run lint -- --watch",
-    "test": "echo 'Welcome to the react-redux boiler plate app!'"
+    "test": "mocha --reporter spec setup/testSetup.js \"src/**/*.test.js\"",
+    "test:watch": "npm run test -- --watch"
   },
   "author": "Sean Ramzan",
   "repository": "https://github.com/sramzan/playground",
@@ -62,6 +63,7 @@
     "mocha": "^4.0.1",
     "nock": "^9.1.4",
     "npm-run-all": "^4.1.2",
+    "react-addons-test-utils": "^15.6.2",
     "react-router-dom": "^4.2.2",
     "style-loader": "^0.19.0",
     "url-loader": "^0.6.2",

@@ -3,7 +3,6 @@ import PropTypes            from 'prop-types';
 import {connect}            from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as courseActions from '../../actions/courseActions';
-import * as authorActions from '../../actions/authorActions';
 import CourseForm from './CourseForm';
 
 class MangeCoursePage extends React.Component {
@@ -14,12 +13,32 @@ class MangeCoursePage extends React.Component {
             course: Object.assign({}, this.props.initialCourse),
             errors: {}
         };
+
+        this.updateCourseState = this.updateCourseState.bind(this);
+        this.saveCourse = this.saveCourse.bind(this);
+    }
+
+    updateCourseState(event) {
+        const field = event.target.name;
+        let course = Object.assign({}, this.state.course);
+        course[field] = event.target.value;
+        return this.setState({
+            course: course
+        });
+    }
+
+    saveCourse(event){
+        event.preventDefault();
+        this.props.actions.saveCourse(this.state.course);
+        this.context.router.history.push('/volumes');
     }
 
     render(){
         return (
             <CourseForm 
                 allAuthors={this.props.authors}
+                onChange={this.updateCourseState}
+                onSave={this.saveCourse}
                 course={this.state.course}
                 errors={this.state.errors}
             />
@@ -29,13 +48,17 @@ class MangeCoursePage extends React.Component {
 
 MangeCoursePage.propTypes = {
     initialCourse : PropTypes.object.isRequired,
-    authors: PropTypes.array.isRequired
+    authors: PropTypes.array.isRequired,
+    actions: PropTypes.object.isRequired
+};
+
+MangeCoursePage.contextTypes = {
+    router: PropTypes.object
 };
 
 function mapStateToProps(state, ownProps){
     let course = {
         id: '',
-        watchHref: '',
         title: '',
         authorId: '',
         length: '',
@@ -60,7 +83,7 @@ function mapStateToProps(state, ownProps){
 
 function mapDispatchToProps(dispatch){
     return {
-        actions: bindActionCreators(courseActions,authorActions, dispatch)
+        actions: bindActionCreators(courseActions, dispatch)
     };
 }
 

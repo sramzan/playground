@@ -57,7 +57,13 @@ class CoursePage extends React.Component{
         // TOOD: move markup to presentation component
         return (
             <div>
-                <h1>Courses</h1>
+                <h1>Volumes</h1>
+                <input 
+                    type="submit"
+                    value="Add Course"
+                    className="btn btn-primary"
+                    onClick={this.redirectToAddCoursePage}
+                />
                 <CourseList courses={courses}/>
             </div>
         );
