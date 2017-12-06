@@ -5,7 +5,7 @@ class AboutPage extends React.Component {
         return (
             <div>
                 <h1>About</h1>
-                <p>This is a demo app</p>
+                <p>This is an about page for FreshFinds</p>
             </div>
         );
     }

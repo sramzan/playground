@@ -1,4 +1,2 @@
 export default {
-    authors: [],
-    courses: []
 };

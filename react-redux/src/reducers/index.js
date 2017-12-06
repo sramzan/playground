@@ -1,11 +1,9 @@
 // Root Reducer
 import {combineReducers} from 'redux';
-import courseReducer from './courseReducer';
-import authorsReducer from './authorReducer';
+import reducer from './reducer';
 
 const rootReducer = combineReducers({
-    courseReducer, // this impacts how this is accessed in react components
-    authorsReducer
+    reducer // this impacts how this is accessed in react components
 });
 
 export default rootReducer;

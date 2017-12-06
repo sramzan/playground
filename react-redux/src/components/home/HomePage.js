@@ -5,7 +5,7 @@ class HomePage extends React.Component{
         return (
             <div className="jumbotron">
                 <h1>Welcome</h1>
-                <p>Sean's Super Awesome App</p>
+                <p>Fresh Finds</p>
             </div>
         );
     }
