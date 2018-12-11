@@ -10,7 +10,7 @@ class LikeButton extends React.Component {
   };
 
   render(){
-    return (
+    return (  
       <button onClick={this.buttonOnClickAction}>
         {this.buttonName}
       </button>
@@ -49,7 +49,7 @@ class Counter extends React.Component {
         <LikeButton incrementBy={10} buttonName="+10" action={this.increment}/>
         <LikeButton incrementBy={20} buttonName="+20" action={this.increment}/>
         <LikeButton incrementBy={30} buttonName="+30" action={this.increment}/>
-        <LikeButton incrementBy={1222187} buttonName="+1222187" action={this.increment}/>
+        <LikeButton incrementBy={40} buttonName="+40" action={this.increment}/>
         <LikeButton incrementBy={-1} buttonName="-1" action={this.increment}/>
 
         <Result timesLiked={this.state.timesLiked}/>

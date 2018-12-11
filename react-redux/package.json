@@ -7,8 +7,6 @@
     "dev-build": "webpack -d --config webpack.config.dev.babel.js",
     "db": "npm run dev-build",
     "db:watch": "npm run dev-build -- --watch",
-    "prod-build": "webpack -p",
-    "pb": "npm run prod-build",
     "prestart": "babel-node setup/startupMessage",
     "start": "webpack-dev-server --open --config webpack.config.dev.babel.js",
     "server": "npm start",
@@ -32,8 +30,7 @@
     "react-router-redux": "^4.0.8",
     "redux": "^3.7.2",
     "redux-immutable-state-invariant": "^2.1.0",
-    "redux-thunk": "^2.2.0",
-    "toastr": "^2.1.2"
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -60,6 +57,7 @@
     "file-loader": "^1.1.5",
     "html-webpack-plugin": "^2.30.1",
     "jsdom": "^11.5.1",
+    "material-ui": "^1.0.0-beta.23",
     "mocha": "^4.0.1",
     "nock": "^9.1.4",
     "npm-run-all": "^4.1.2",

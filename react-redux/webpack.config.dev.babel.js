@@ -4,7 +4,8 @@ import cleanWebpackPlugin from 'clean-webpack-plugin';
 import path from 'path';
 
 let APP_DIR   = path.resolve(__dirname, './src'),
-    BUILD_DIR = path.resolve(__dirname, './dist');
+    BUILD_DIR = path.resolve(__dirname, './dist'),
+    PORT      = 9000;
 
 export default {
   /**
@@ -54,7 +55,7 @@ export default {
   devServer: {
     contentBase: BUILD_DIR,
     compress: true,
-    port: 8080
+    port: PORT
   },
 
   plugins: [
